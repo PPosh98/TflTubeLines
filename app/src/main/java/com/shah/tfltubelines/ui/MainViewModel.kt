@@ -23,7 +23,7 @@ class MainViewModel @Inject constructor(private val repository: Repository): Vie
         getTubeLinesStatuses()
     }
 
-    private fun getTubeLinesStatuses() {
+    fun getTubeLinesStatuses() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val response = repository.getTubeLinesStatuses()
@@ -45,7 +45,6 @@ class MainViewModel @Inject constructor(private val repository: Repository): Vie
                     )
                 }
             } catch (e: Exception) {
-                Log.e("error", e.toString())
             }
         }
     }
